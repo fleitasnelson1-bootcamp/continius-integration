@@ -16,16 +16,17 @@ class OrdenadorTest {
 		_or = new Ordenador();
 	}
 	
-	@Test
-	void emptyArrayTest() {
-		int[] emptyList = {};
+	@ParameterizedTest
+	@ValueSource(ints = {0 , 16, 500})
+	void emptyArrayTest(int arrSize) {
+		int[] array = new int[arrSize];
 		
 		assertThrows(IllegalArgumentException.class, () -> {
-			_or.ordenAscendente( emptyList );
+			_or.ordenAscendente( array );
 		});
 		
 		assertThrows(IllegalArgumentException.class, () -> {
-			_or.ordenDescendente( emptyList );
+			_or.ordenDescendente( array );
 		});
 		
 	}
@@ -64,19 +65,6 @@ class OrdenadorTest {
 		});
 	}
 	
-	@Test
-	void bigArrayTest() {
-		//Arreglo con mas de 15 elementos.
-		int[] bigArray = new int[16];
-		
-		assertThrows(IllegalArgumentException.class, () -> {
-			_or.ordenAscendente( bigArray );
-		});
-		
-		assertThrows(IllegalArgumentException.class, () -> {
-			_or.ordenDescendente( bigArray );
-		});	
-	}
 	
 	@Test
 	void ascendenteTest() {
