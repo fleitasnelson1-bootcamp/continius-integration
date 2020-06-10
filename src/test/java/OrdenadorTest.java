@@ -79,7 +79,7 @@ class OrdenadorTest {
 		int[] sorted = {800000000,150000,67,51,50,33,24,2,1};
 		int[] unSorted = {800000000,33,1,67,24,50,2,150000,51};
 		
-		assertTrue( Arrays.equals( sorted, _or.ordenDescendente(unSorted) ) );
+		assertTrue( Arrays.equals( sorted, _or.ordenAscendente(unSorted) ) );
 	}
 	
 }
